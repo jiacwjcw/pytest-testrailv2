@@ -5,11 +5,9 @@ This is the pytest testrail project Makefile.
 
 Usage:
 make clean        - Remove generated files
-make coverage     - Run coverage analysis
 make lint         - Run static analysis
 make release      - Bumpversion and push with tags
 make requirements - Install dependencies
-make test         - Run static analysis, tests with coverage
 
 endef
 
@@ -21,9 +19,6 @@ all help:
 clean:
 	rm -rf .cache .coverage .tox pytests_py*-test.xml pytest_testrailv2.egg-info pytest_testrailv2.txt pytests_coverage.xml
 	find . -name '*.pyc' -delete
-
-coverage:
-	tox -e coverage
 
 lint:
 	flake8 pytest_testrailv2 | tee pytest_testrailv2.txt
@@ -41,5 +36,5 @@ requirements: .requirements.txt
 	pip install -r requirements/base.txt
 	pip freeze > $@
 
-test: coverage lint
+test: lint
 	tox
