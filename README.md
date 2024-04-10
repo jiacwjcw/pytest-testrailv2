@@ -22,7 +22,7 @@ Configuration
 Add a marker to the tests that will be picked up to be added to the run.
 
 ```python
-    from pytest_testrail.plugin import testrail
+    from pytest_testrailv2.plugin import testrail
 
     @testrail('C1234', 'C5678')
     def test_foo():
@@ -30,7 +30,7 @@ Add a marker to the tests that will be picked up to be added to the run.
 
     # OR	
 
-    from pytest_testrail.plugin import pytestrail
+    from pytest_testrailv2.plugin import pytestrail
 
     @pytestrail.case('C1234', 'C5678')
     def test_bar():
@@ -41,7 +41,7 @@ Or if you want to add defects to testcase result:
 
 ```python
 
-    from pytest_testrail.plugin import pytestrail
+    from pytest_testrailv2.plugin import pytestrail
 
     @pytestrail.defect('PF-524', 'BR-543')
     def test_bar():
